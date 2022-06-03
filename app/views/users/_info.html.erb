@@ -8,10 +8,22 @@
 	  <th>introduction</th>
 	  <th><%= user.introduction %></th>
   </tr>
+  <tr>
+	  <th>フォロー数</th>
+	  <th><%= link_to user.followings.count, user_followings_path(user) %></th>
+  </tr>
+  <tr>
+	  <th>フォロワー数</th>
+	  <th><%= link_to user.followers.count, user_followers_path(user) %></th>
+  </tr>
 </table>
-　
+
 <div class='row'>
-  <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block edit_user_#{user.id}" do %>
+  <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block edit_user_#{user.id} mb-3" do %>
     <i class="fas fa-user-cog"></i>
+  <% end %>
+  <%= render 'relationships/btn', user: user %>
+  <% if current_user != user %>
+    <%= link_to "チャットを始める", chat_path(user.id) %>
   <% end %>
 </div>
