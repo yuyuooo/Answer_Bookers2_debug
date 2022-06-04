@@ -1,52 +1,31 @@
-<div class="row">
-    <div class="col-md-8 offset-md-2">
+<div class="container">
+  <div class="row">
+    <div class="col col-12">
       <h2><%= @user.name %>さんとのチャット</h2>
-      <div class="maessage">
-        <table class="message table">
-          <thead>
-            <tr>
-              <th style="text-align: left; font-size: 20px;"><%= @user.name %></th>
-              <th></th>
-              <th style="text-align: right; font-size: 20px;"><%= current_user.name %></th>
-            </tr>
-          </thead>
-          <div class="chats">
-            <% @chats.each do |chat|%>
-  <% if chat.user_id != current_user.id %>
-  <tbody>
-    <tr>
-      <th>
-        <p style="text-align: left;"><%= chat.message %></p>
-      </th>
-      <th></th>
-      <th></th>
-    </tr>
-  <% else %>
-    <tr>
-      <th></th>
-      <th></th>
-      <th>
-        <p style="text-align: right;"><%= chat.message %></p>
-      </th>
-    </tr>
-  </tbody>
- <% end %>
-<% end %>
-
-          </div>
-        </table>
+        <div class="message">
+          <table class="table table-borderless">
+            <thead>
+              <tr>
+                <th style="text-align: left; font-size: 20px;"><%= @user.name %></th>
+                <th></th>
+                <th style="text-align: right; font-size: 20px;"><%= current_user.name %></th>
+              </tr>
+            </thead>
+            <div class="chats_index">
+              <%= render "index", chats: @chats %>
+            </div>
+          </table>
+        </div>
       </div>
-      <div class="errors">
-        <%= render "layouts/errors", obj: @chat %>
-      </div>
-      <div class="message_form">
-        <%= form_with model: @chat do |f| %>
-          <%= f.text_area :message%>
-          <%= f.hidden_field :room_id %>
-          <%= f.submit %>
-        <% end %>
+    </div>
+    <div class="row">
+      <div class="col-md-6 offset-3">
+        <div class="errors">
+          <%= render "layouts/errors", obj: @chat %>
+        </div>
+        <div class="message_form mt-5">
+          <%= render "form", chat: @chat %>
+        </div>
       </div>
     </div>
   </div>
-</div>
-
