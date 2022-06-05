@@ -1,0 +1,8 @@
+ja:
+  activerecord:
+    attributes:
+      book:
+        title: 本のタイトル
+        body: 本文
+      chat:
+        message: メッセージ

@@ -1,4 +1,6 @@
-$('.chats_index').append("<%= j(render 'chats/index', chats: @chats) %>");
+$('.chats_index').append("<p style='text-align: right;'><%= @chat.message %></p>
+<%= image_tag @user.get_profile_image, size:'50x50', class: "message_icon" %>");
+
 $("textarea").val('');
 
-<%#　.append("<p style='text-align: right;'><%= @chat.message %></p>")
+<%#　.append("<p style='text-align: right;'><%= @chat.message %>

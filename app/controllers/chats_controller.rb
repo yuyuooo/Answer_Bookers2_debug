@@ -18,7 +18,9 @@ class ChatsController < ApplicationController
 
   def create
     @chat = current_user.chats.new(chat_params)
+    #binding.pry
     render :validater unless @chat.save
+    @user = current_user
   end
 
   private
