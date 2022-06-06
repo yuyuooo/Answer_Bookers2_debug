@@ -14,7 +14,7 @@ class User < ApplicationRecord
 
   has_many :followings, through: :relationships, source: :followed
   has_many :followers, through: :reverse_of_relationships, source: :follower
-  
+
   has_many :chats, dependent: :destroy
   has_many :user_rooms, dependent: :destroy
 
@@ -36,5 +36,17 @@ class User < ApplicationRecord
 
   def following?(user)
     followings.include?(user)
+  end
+
+  def self.looks(method, content)
+    if method == "perfect_match"
+      @user = User.where("name LIKE?", "#{content}")
+    elsif method == "forward_match"
+      @user = User.where("name LIKE?", "#{content}%")
+    elsif method == "backward_match"
+      @user = User.where("name LIKE?", "%#{content}")
+    elsif method == "partial_match"
+      @user = User.where("name LIKE?","%#{content}%")
+    end
   end
 end
