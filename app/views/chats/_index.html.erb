@@ -2,8 +2,8 @@
     <% if chat.user_id != current_user.id %>
     <tbody>
       <tr>
-        <td><%= image_tag @user.get_profile_image, size:'50x50',class: "message_icon" %></td>
-        <td><p style="text-align: left;" class="message_box_1"><%= chat.message %></p></td>
+        <td class="icon_1"><%= image_tag @user.get_profile_image, size:'50x50',class: "message_icon" %></td>
+        <td><div class="message_box_1"><%= chat.message %></div></td>
         <td></td>
         <td></td>
       </tr>
@@ -11,8 +11,8 @@
       <tr>
         <td></td>
         <td></td>
-        <td><p style="text-align: right;" class="message_box_2"><%= chat.message %></p></td>
-        <td><%= image_tag @user.get_profile_image, size:'50x50', class: "message_icon" %></td>
+        <td class="message_2"><div class="message_box_2"><%= chat.message %></div></td>
+        <td class="icon_2"><%= image_tag @user.get_profile_image, size:'50x50', class: "message_icon" %></td>
       </tr>
     </tbody>
     <% end %>

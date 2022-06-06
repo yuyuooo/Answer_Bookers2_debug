@@ -5,26 +5,48 @@
   background-color: #e0c38c;
 }
 
+
+.message_table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.message_table th {
+  font-size: 20px;
+}
+
+.message_table th:nth-of-type(1){
+  text-align: right;
+}
+
+.message_table th:nth-of-type(4){
+  text-align: left;
+}
+
 .message_box_1,.message_box_2 {
   border-radius: 240px 15px 100px 15px / 15px 200px 15px 185px;
   padding: 2%;
   margin: 10px;
-  width: 50%;
-  word-break: keep-all;
+  display: inline-block;
+  word-break: break-word;
 }
-
 
 
 .message_box_1 {
   background-color: #98fb98;
   border: 2px dotted #333;
+  text-align: left;
 }
 
 .message_box_2 {
   background-color: #fffacd;
   border: 2px dotted #333;
+  text-align: right;
 }
 
+.message_2 {
+  text-align: right;
+}
 
 
 .message_icon {
@@ -33,6 +55,9 @@
   border-radius: 50% ;
 }
 
+.icon_1 {
+  text-align: right;
+}
 
 .message_form {
   text-align: right;

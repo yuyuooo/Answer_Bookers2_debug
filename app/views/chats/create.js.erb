@@ -1,6 +1,6 @@
-$('.chats_index').append("<p style='text-align: right;'><%= @chat.message %></p>
-<%= image_tag @user.get_profile_image, size:'50x50', class: "message_icon" %>");
-
+$(document).ready(function(){
+  $('.message_table').append('<td></td><td></td><td class="message_2"><div class="message_box_2"><%= @chat.message %></div></td><td class="icon_2"><%= image_tag @user.get_profile_image, size:'50x50', class: "message_icon" %></td>');
+});
 $("textarea").val('');
 
 <%#　.append("<p style='text-align: right;'><%= @chat.message %>
