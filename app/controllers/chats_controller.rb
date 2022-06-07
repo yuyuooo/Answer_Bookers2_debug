@@ -21,6 +21,7 @@ class ChatsController < ApplicationController
     #binding.pry
     render :validater unless @chat.save
     @user = current_user
+    @chat.room.create_notification_dm!(current_user, @chat.room_id, @chat.id)
   end
 
   private
