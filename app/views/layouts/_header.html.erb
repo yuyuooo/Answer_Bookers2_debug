@@ -9,6 +9,12 @@
         <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
           <li>
+            <% if unchecked_notifications.any? %>
+               <i class="fa fa-circle" style="color: gold;"></i>
+            <% end %>
+            <%= link_to "NOTICE", notifications_path, class: "nav-link text-light" %>
+          </li>
+          <li>
             <%= link_to user_path(current_user),class: 'nav-link text-light' do %>
               <i class="fas fa-home"></i> Home
             <% end %>
